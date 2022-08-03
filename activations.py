@@ -6,22 +6,35 @@ class activation_function(ABC):
 
     def calculate(self):
         pass
-
+    
+    def derivative(self,z):
+        pass
 class linear(activation_function):
 
-    def calculate(self,a,x):
+    def calculate(self,z):
         
-        return np.dot(np.matrix.transpose(np.array(a)),np.array(x))
+        return z
+    
+    def derivative(self,z):
 
-class logistic(activation_function):
+        return 1
 
-    def calculate(self,a,x):
+class sigmoid(activation_function):
+
+    def calculate(self,z):
         
-        z = np.dot(np.matrix.transpose(np.array(a)),np.array(x))
-        return 1/(1+pow(np.e,-z))
+        return 1/(1 + pow(np.e,-z))
+
+    def derivative(self,z):
+
+        return z*(1 - z)
 
 class ReLU(activation_function):
 
-    def calculate(self,a,x):
+    def calculate(self,z):
         
-        return max(0,np.dot(np.matrix.transpose(np.array(a)),np.array(x)))
+        return max(0,z)
+    
+    def derivative(self,z):
+
+        return z > 0
