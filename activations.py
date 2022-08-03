@@ -38,3 +38,13 @@ class ReLU(activation_function):
     def derivative(self,z):
 
         return z > 0
+
+class bias(activation_function):
+
+    def calculate(self,z):
+        
+        return 1
+    
+    def derivative(self,z):
+
+        return 0

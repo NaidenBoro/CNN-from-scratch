@@ -1,8 +1,8 @@
 import activations
 import matplotlib.pyplot as plt
 import numpy as np
-from node import Node
+from layers import layer
 a = activations.sigmoid()
-n = Node(a)
+l = layer(activations.linear(),1)
 
-print(n.calculate(1,0))
+l.print()
