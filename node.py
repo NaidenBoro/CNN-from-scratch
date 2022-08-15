@@ -5,5 +5,6 @@ class Node():
         self.type = type
 
     def calculate(self, a,x):
-        z = np.dot(np.matrix.transpose(np.array(a)),np.array(x))
+        z = np.dot(np.array(a),np.array(x))
+        print("z=",z)
         return self.type.calculate(z)
